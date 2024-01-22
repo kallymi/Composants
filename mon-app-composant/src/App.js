@@ -1,30 +1,31 @@
 
 
+import React from 'react';
 import product from './products';
 import Name from './composant/Name';
 import Price from './composant/Price';
 import Description from './composant/Description';
 import Image from './composant/Image';
 import Card from 'react-bootstrap/Card';
-function App()  {
-  const firstName = "Ali"; // Remplacez par votre prénom
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+function App()  {
+  const firstName = prompt("Donnezvotre prenom");
   return (
     <div>
-      <Card style={{ width: '18rem', margin:'20px' }}>
-        <Card.Body>
-          <Card.Title>Véhicule</Card.Title>
-          <Name  nom={product.nom} />
+        <Card style={{ width: '18rem' }}>
+          <Name />
+          <Image/>
+          <Description /> 
           <Price prix={product.prix}/>
-          <Image image={product.imageURL}/>
-          <Description  description={product.description}/> 
-        </Card.Body>
-      </Card>
-      <p>Hello, {firstName ? firstName : 'there'}!</p>
-      {firstName && <Image imageURL="./image2.png" />} 
-  
+          <p>Hello, {firstName ? firstName : 'there'}!
+          {firstName && <image src="/image/image2.png" alt="image"/>} </p>
+        </Card>
     </div>
   );
 }
 
 export default App;
+
+
